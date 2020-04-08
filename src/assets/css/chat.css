@@ -38,9 +38,9 @@ input {
     position: relative;
 }
 .chatbox {
-    margin: auto;
+    margin: 0 15%;
     height: 70%;
-    width: 70%;
+    width: 80%;
     box-shadow: 0 0 0 1px gray;
     display: block;
     overflow: hidden;
@@ -174,8 +174,8 @@ input {
     display: inline-block;
     font-size: 0.5rem;
     color: darkgrey;
-    width: 100%;
-    text-align: center;
+    width: fit-content;
+    float: left;
 }
 div{
     height: 100%;

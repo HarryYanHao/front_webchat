@@ -1,6 +1,7 @@
 <template>
   <div>
     <leftBar></leftBar>
+    <div><span class="nickname input-field">输入聊天室昵称</span></div>
     <div class="input-field linear">
     <input id="last_name" type="text" placeholder="昵称" v-model="nickname" @blur="setInfo">
     <span></span>
@@ -21,6 +22,7 @@ export default {
   },
   methods: {
     setInfo: function () {
+      var $this = this
       if (this.$cookies.get('cookie_user_nickname') === null) {
         this.$cookies.set('cookie_user_nickname', this.nickname, 3600 * 24)
       }
@@ -33,6 +35,7 @@ export default {
         }
       }).then(function (response) {
         console.log(response)
+        $this.$router.push({path: '/chat'})
       }).catch(function (err) {
         console.log(err)
       })
@@ -59,6 +62,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-  @import '../assets/css/info.css'
-</style>

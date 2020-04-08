@@ -28,16 +28,18 @@
                     </ul>
                     <ul v-for = "(v,i) in message_list" v-bind:key="i">
                         <li v-bind:class="{msgleft:msg_style(v),msgright:!msg_style(v)}">
-                            <div style="width: 6%">
-                            <div class="nickname">{{v.nickname}}</div>
-                            <img style="border-radius: 20px; vertical-align: top;" src="http://placehold.it/40x40">
+                            <div>
+                            <div class="nickname" style="float:left;">{{v.nickname}}</div>
+                            <div style="float: none">
+                            <img style="border-radius: 20px; vertical-align: middle;" src="http://placehold.it/40x40">
+                            </div>
                             </div>
                             <p class="msgcard">{{v.message}}</p>
                         </li>
                     </ul>
                 </div>
                 <div class="center footer">
-                    <textarea maxlength="800" rows="5" cols="40" style="width: 100%; resize: none; border: none; " :placeholder=type_message v-model="message"></textarea>
+                    <textarea maxlength="800" rows="5" cols="40" style="width: 100%; resize: none; border: none; " :placeholder=type_message v-model="message" @keyup.enter="send"></textarea>
                     <button class="sendbtn" v-on:click="send">发送</button>
                 </div>
             </div>
@@ -70,6 +72,10 @@ export default {
   methods: {
     send: function () {
       console.log(this.socket_id)
+      if (this.message === '' || this.message === '\n') {
+        this.message = ''
+        return true
+      }
       this.axios.post('http://192.168.7.237:1025/send', {
         send_id: this.socket_id,
         message: this.message

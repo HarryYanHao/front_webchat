@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     smile: function () {
-      this.$router.push({path: '/'})
+      window.open('http://localhost:8081')
     },
     user: function () {
       this.$router.push({path: '/info'})
