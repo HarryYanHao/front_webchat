@@ -34,7 +34,7 @@ export default {
     },
     exit: function () {
       var $this = this
-      this.axios.post('http://192.168.7.237:1025/delUser', {
+      this.axios.post('http://' + this.$config.api_host + ':' + this.$config.api_port + '/delUser', {
         send_id: this.$store.state.socket_id
       }, {
         headers: {

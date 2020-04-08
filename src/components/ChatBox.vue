@@ -76,7 +76,7 @@ export default {
         this.message = ''
         return true
       }
-      this.axios.post('http://192.168.7.237:1025/send', {
+      this.axios.post('http://' + this.$config.api_host + ':' + this.$config.api_port + '/send', {
         send_id: this.socket_id,
         message: this.message
       }, {

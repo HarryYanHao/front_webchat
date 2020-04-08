@@ -12,6 +12,7 @@ import VueAxios from 'vue-axios'
 import VueCookies from 'vue-cookies'
 import websocket from './assets/js/websocket.js'
 import store from './assets/js/store.js'
+import config from '../config/host.js'
 
 Vue.config.productionTip = false
 Vue.use(Vuex)
@@ -60,3 +61,4 @@ new Vue({
 
 Vue.prototype.$websocket = websocket
 Vue.prototype.$cookies = VueCookies
+Vue.prototype.$config = config

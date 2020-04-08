@@ -1,5 +1,7 @@
 import store from './store.js'
-var wsServer = 'ws://192.168.7.237:9502'
+import config from '../../../config/host.js'
+console.log(config)
+var wsServer = 'ws://' + config.websocket_host + ':' + config.websocket_port
 var websocket = new WebSocket(wsServer)
 var $data = {'message_list': []}
 websocket.onopen = function (evt) {

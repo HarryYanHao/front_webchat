@@ -26,7 +26,7 @@ export default {
       if (this.$cookies.get('cookie_user_nickname') === null) {
         this.$cookies.set('cookie_user_nickname', this.nickname, 3600 * 24)
       }
-      this.axios.post('http://192.168.7.237:1025/addUser', {
+      this.axios.post('http://' + this.$config.api_host + ':' + this.$config.api_port + '/addUser', {
         send_id: this.socket_id,
         nickname: this.nickname
       }, {
